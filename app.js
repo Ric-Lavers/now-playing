@@ -8,7 +8,11 @@ import usersRouter from './routes/users.js';
 import spotifyRouter from './routes/spotify.js';
 
 const app = express();
-
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',  // Set to specific origins in production
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
