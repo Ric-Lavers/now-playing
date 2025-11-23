@@ -4,7 +4,7 @@ const { Schema, model, models } = mongoose;
 
 const TokenSchema = new Schema(
   {
-    userUri: { type: String, index: true },
+    userUri: { type: String },
     provider: { type: String, required: true, index: true },
     accessToken: { type: String, required: true },
     refreshToken: { type: String, required: true },

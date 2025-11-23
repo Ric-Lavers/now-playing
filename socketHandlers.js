@@ -56,7 +56,8 @@ export async function setupTokenCountWatcher(io) {
 
 async function getViewCount() {
   try {
-    return await CountModel.countDocuments();
+    const { count } = await CountModel.findOne({ id: 'page-views' })
+    return count;
   } catch (error) {
     debug('Error getting view count:', error);
     return 0;
